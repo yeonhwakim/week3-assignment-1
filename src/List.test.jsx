@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import List from './List';
 
 
-describe('할 일이 있으면 목록을 보여주고, 없으면 할 일이 없어요! 라고 보여준다', () => {
+describe('<List />', () => {
   test('할 일이 없으면 할 일이 없다고 보여주기', () => {
     const tasks = [];
     const { container } = render((

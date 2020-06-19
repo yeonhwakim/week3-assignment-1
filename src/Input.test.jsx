@@ -4,10 +4,16 @@ import { render, fireEvent } from '@testing-library/react';
 
 import Input from './Input';
 
-describe('할 일을 입력하고, 입력하면 입력창이 비워진다.', () => {
+describe('<Input />', () => {
   test('할 일 라벨, 인풋창, 추가버튼이 있다.', () => {
+    const onChangeTitle = jest.fn();
+    const onClickAddTask = jest.fn();
+
     const { getByText, getByPlaceholderText } = render((
-      <Input />
+      <Input
+        onChange={onChangeTitle}
+        onClick={onClickAddTask}
+      />
     ));
 
     getByText('할 일');
@@ -16,8 +22,14 @@ describe('할 일을 입력하고, 입력하면 입력창이 비워진다.', () 
   });
 
   test('할 일을 입력한다.', () => {
+    const onChangeTitle = jest.fn();
+    const onClickAddTask = jest.fn();
+
     const { getByPlaceholderText } = render((
-      <Input />
+      <Input
+        onChange={onChangeTitle}
+        onClick={onClickAddTask}
+      />
     ));
 
     const input = getByPlaceholderText('할 일을 입력해 주세요');
@@ -28,8 +40,14 @@ describe('할 일을 입력하고, 입력하면 입력창이 비워진다.', () 
   });
 
   test('추가를 클릭하면 입력창이 초기화된다.', () => {
+    const onChangeTitle = jest.fn();
+    const onClickAddTask = jest.fn();
+
     const { getByText, getByPlaceholderText } = render((
-      <Input />
+      <Input
+        onChange={onChangeTitle}
+        onClick={onClickAddTask}
+      />
     ));
 
     const input = getByPlaceholderText('할 일을 입력해 주세요');
